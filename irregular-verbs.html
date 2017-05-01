@@ -31,7 +31,9 @@
 				<i class="material-icons">menu</i>
 			</a>
 			<ul class="side-nav" id="slide-out">
-				<li><a href="#">Irregular Verbs</a></li>
+				<li><a href="irregular-verbs.html">Irregular Verbs</a></li>
+				<li><a href="irregular-verbs.html?type=past">Irregular Verbs - Only Past</a></li>
+				<li><a href="irregular-verbs.html?type=past-participle">Irregular Verbs - Only Past Participle</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -48,14 +50,15 @@
 
 	
 		<form id="irregular_verbs_form" class="col row">
-			<div class="input-field col m6 s12">
-				<input type="text" id="past" value="" required autocomplete="off" placeholder=" ">
+			<div class="input-field col m6 s12 for-past">
 				<label for="past">Past</label>
+				<input type="text" id="past" value="" required autocomplete="off" placeholder="">
 			</div>
-			<div class="input-field col m6 s12">
+			<div class="input-field col m6 s12 for-past-participle">
 				<label for="past_participle">Past Participle</label>
-				<input type="text" id="past_participle" value="" required autocomplete="off" placeholder=" ">
+				<input type="text" id="past_participle" value="" required autocomplete="off" placeholder="">
 			</div>
+			<div class="clearfix"></div>
 			<button id="irregular_verbs_bt" type="submit" disabled class="waves-effect waves-light btn"><i class="material-icons left">send</i>Verify my answers</button>
 		</form>
 	</section>
@@ -71,9 +74,9 @@
 	<div class="modal-content">
 		<h4 id="modal-title">Verify answer</h4>
 		<div>
-			Infinitive <strong><span id="answer_infinitive"></span></strong>.<br>
-			The verb in past is <strong><span id="answer_past"></span></strong>.<br>
-			The verb in past participle is <strong><span id="answer_past_participle"></span></strong>.<br>
+			Infinitive <strong><span id="answer_infinitive"></span></strong>.
+			<div class="for-past">The verb in past is <strong><span id="answer_past"></span></strong>.</div>
+			<div class="for-past-participle">The verb in past participle is <strong><span id="answer_past_participle"></span></strong>.</div>
 			The translation is "<span id="answer_translated"></span>"</div>
 	</div>
 	<div class="modal-footer">

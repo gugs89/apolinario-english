@@ -5,6 +5,9 @@ var irregular_verbs = (function(){
 	var in_past_participle = "";
 	var translated = "";
 
+	var is_validating_past = true;
+	var is_validating_past_participle = true;
+
 	var points_correct = 0;
 	var points_wrong = 0;
 	var points_consective = 0;
@@ -100,7 +103,21 @@ var irregular_verbs = (function(){
 		$('#modal-finish .btn').focus();
 	};
 
-	var init = function() {
+	var init = function( type ) {
+
+		if( type == 'past' || type == 'past-participle' ) {
+
+			if( type == 'past' ) {
+				is_validating_past_participle = false;
+				$('#past_participle').removeAttr('required');
+				$('.for-past-participle').hide();
+			}
+			if( type == 'past-participle' ) {
+				is_validating_past = false;
+				$('#past').removeAttr('required');
+				$('.for-past').hide();
+			}
+		}
 
 		randomNewVerb();
 
@@ -125,7 +142,11 @@ var irregular_verbs = (function(){
 
 	var getMessageText = function(answer) {
 
-		if( answer.past && answer.past_participle ) {
+		if(
+				(answer.past && answer.past_participle) ||
+				(answer.past && is_validating_past) ||
+				(answer.past_participle && is_validating_past_participle)
+			) {
 			return '<span class="green-text text-darken-4">Good Job. All Right.</span>'
 		}
 
@@ -133,11 +154,11 @@ var irregular_verbs = (function(){
 			return '<span class="red-text text-darken-4">Ops. All Wrong.</span>';
 		}
 
-		if( !answer.past) {
+		if( !answer.past && is_validating_past) {
 			return '<span class="orange-text text-darken-4">You wrong the verb in past.</span>';
 		}
 
-		if( !answer.past_participle) {
+		if( !answer.past_participle && is_validating_past_participle) {
 			return '<span class="orange-text text-darken-4">You wrong the verb in past participle.</span>';
 		}
 	}
@@ -164,25 +185,31 @@ var irregular_verbs = (function(){
 
 	var calculatePoints = function (answer) {
 
-		if( answer.past && answer.past_participle ) {
-			points_consective++;
-		}
-		else {
-			points_consective = 0;
-		}
+		var is_correct = true;
 
 		if( answer.past ) {
 			points_correct++;
 		}
-		else {
+		else
+		if( is_validating_past ) {
 			points_wrong++;
+			is_correct = false;
 		}
 
 		if( answer.past_participle ) {
 			points_correct++;
 		}
-		else {
+		else 
+		if( is_validating_past_participle ) {
 			points_wrong++;
+			is_correct = false;
+		}
+
+		if( is_correct ) {
+			points_consective++;
+		}
+		else {
+			points_consective = 0;
 		}
 
 		$('#points_correct').html(points_correct);
@@ -195,7 +222,8 @@ var irregular_verbs = (function(){
 	};
 
 	var modal_closed = function() {
-		$('#past').focus();
+		if(is_validating_past) $('#past').focus();
+		if(is_validating_past_participle) $('#past_participle').focus();
 		randomNewVerb();
 	};
 
