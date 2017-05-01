@@ -109,8 +109,8 @@ var irregular_verbs = (function(){
 	var verify = function() {
 
 		return {
-			past: document.querySelector('#past').value == in_past,
-			past_participle: document.querySelector('#past_participle').value == in_past_participle,
+			past: document.querySelector('#past').value.toLowerCase().trim() == in_past,
+			past_participle: document.querySelector('#past_participle').value.toLowerCase().trim() == in_past_participle,
 		}
 	}
 
@@ -205,18 +205,4 @@ var irregular_verbs = (function(){
         modal_closed: modal_closed
     }
 })()
-document.addEventListener("DOMContentLoaded", function() {
-	irregular_verbs.init();
-	document.querySelector('#irregular_verbs_form').addEventListener("submit", irregular_verbs.form_submit);
-	document.querySelector('#irregular_verbs_bt').disabled = false;
-});
 
-$(function(){
-	$(".button-collapse").sideNav();
-	$('.modal').modal({
-		complete: function() {
-			irregular_verbs.modal_closed();
-		}
-	});
-	$('#past').focus();
-});
