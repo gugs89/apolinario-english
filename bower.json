@@ -1,0 +1,23 @@
+{
+  "name": "Apolinario-English",
+  "description": "Codes for study english",
+  "main": "irregular-berbs.html",
+  "authors": [
+    "Gustavo Apolinario"
+  ],
+  "license": "MIT",
+  "homepage": "irregular-berbs.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "materialize": "^0.98.2",
+    "material-icons": "https://google-fonts.azurewebsites.net/googleFonts/material-icons?family=Material+Icons"
+  }
+}

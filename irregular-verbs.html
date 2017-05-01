@@ -1,0 +1,101 @@
+<!DOCTYPE html manifest="apolinario-english.appcache">
+<html>
+<head>
+	<title>Irregular Verbos for English study</title>
+	<meta name="description" content="Exercises of Irregular Verbs to learn english">
+	<meta name="author" content="Gustavo Apolinario">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+	<link href="bower_components/material-icons/materialIcons.css" rel="stylesheet">
+	<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+
+	<link rel="stylesheet" href="css/base.css">
+	<script src="js/irregular_verbs.js"></script>
+</head>
+
+<body>
+
+<header>
+	<nav>
+		<div class="nav-wrapper">
+			<h1 class="h1-nav">Irregular Verbos for English study</h1>
+			<a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+				<i class="material-icons">menu</i>
+			</a>
+			<ul class="side-nav" id="slide-out">
+				<li><a href="#">Irregular Verbs</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+
+<main class="container">
+	<section class="card-panel">
+		<h2>Verb in infinitive: <br class="hide-on-med-and-up">"<strong id="infinitive"></strong>"</h2>
+
+		<p>
+		Write the verb in past and past participle
+		</p>
+
+	
+		<form id="irregular_verbs_form" class="col row">
+			<div class="input-field col m6 s12">
+				<input type="text" id="past" value="" required autocomplete="off" placeholder=" ">
+				<label for="past">Past</label>
+			</div>
+			<div class="input-field col m6 s12">
+				<label for="past_participle">Past Participle</label>
+				<input type="text" id="past_participle" value="" required autocomplete="off" placeholder=" ">
+			</div>
+			<button id="irregular_verbs_bt" type="submit" disabled class="waves-effect waves-light btn"><i class="material-icons left">send</i>Verify my answers</button>
+		</form>
+	</section>
+	<section class="card-panel">
+		<div class="green-text text-darken-4">Correct answers: <span id="points_correct">0</span></div>
+		<div class="red-text text-darken-4">Wrong answers: <span id="points_wrong">0</span><br></div>
+		<div class="green-text text-darken-4">Consective Points: <span id="points_consective">0</span></div>
+	</section>
+</main>
+
+
+<div id="modal-answers" class="modal">
+	<div class="modal-content">
+		<h4 id="modal-title">Verify answer</h4>
+		<div>
+			Infinitive <strong><span id="answer_infinitive"></span></strong>.<br>
+			The verb in past is <strong><span id="answer_past"></span></strong>.<br>
+			The verb in past participle is <strong><span id="answer_past_participle"></span></strong>.<br>
+			The translation is "<span id="answer_translated"></span>"</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-action modal-close waves-effect waves-green btn"><i class="material-icons left">done</i>OK</a>
+	</div>
+</div>
+
+<div id="modal-finish" class="modal">
+	<div class="modal-content">
+		<h4 id="modal-title">Congratulations!</h4>
+		<div>
+			All verbs is passed.<br>
+			Your points is:<br>
+			<div class="green-text text-darken-4">Correct answers: <span id="finish_points_correct">0</span></div>
+			<div class="red-text text-darken-4">Wrong answers: <span id="finish_points_wrong">0</span><br></div>
+			<div class="green-text text-darken-4">Max Consective Points: <span id="finish_points_max_consective">0</span></div>
+			<div class="green-text text-darken-4">Last Consective Points: <span id="finish_points_consective">0</span></div>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-action modal-close waves-effect waves-green btn"><i class="material-icons left">done</i>Restart</a>
+	</div>
+</div>
+
+</body>
+
+</html>
