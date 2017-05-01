@@ -222,8 +222,8 @@ var irregular_verbs = (function(){
 	};
 
 	var modal_closed = function() {
-		if(is_validating_past) $('#past').focus();
 		if(is_validating_past_participle) $('#past_participle').focus();
+		if(is_validating_past) $('#past').focus();
 		randomNewVerb();
 	};
 
