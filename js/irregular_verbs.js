@@ -1,5 +1,124 @@
 "use strict";
-var irregular_verbs = (function(){
+class IrregularVerbs {
+
+	constructor(options) {
+		this.is_validating_past = options.validate_past;
+		this.is_validating_past_participle = options.validate_past_participle;
+		this.total_verbs = options.total_verbs;
+
+
+
+		this.verbs = [
+			{ infinitive: 'to be', past: 'was/were', past_participle: 'been', translate: 'ser/estar'},
+			{ infinitive: 'to beat', past: 'beat', past_participle: 'beat', translate: 'bater'},
+			{ infinitive: 'to become', past: 'became', past_participle:'become', translate: 'tornar-se'},
+			{ infinitive: 'to begin', past: 'began', past_participle:'begun', translate: 'começar'},
+			{ infinitive: 'to bend', past: 'bent', past_participle:'bent', translate: 'dobrar'},
+			{ infinitive: 'to bet', past: 'bet', past_participle:'bet', translate: 'apostar'},
+			{ infinitive: 'to bite', past: 'bit', past_participle:'bit', translate: 'morder'},
+			{ infinitive: 'to blow', past: 'blew', past_participle:'blown', translate: 'soprar'},
+			{ infinitive: 'to break', past: 'broke', past_participle:'broken', translate: 'quebrar'},
+			{ infinitive: 'to bring', past: 'brought', past_participle:'brought', translate: 'trazer'},
+			{ infinitive: 'to build', past: 'built', past_participle:'built', translate: 'construir'},
+			{ infinitive: 'to buy', past: 'bought', past_participle:'bought', translate: 'comprar'},
+			{ infinitive: 'to catch', past: 'caught', past_participle:'caught', translate: 'pegar'},
+			{ infinitive: 'to choose', past: 'chose', past_participle:'chosen', translate: 'escolher'},
+			{ infinitive: 'to come', past: 'came', past_participle:'come', translate: 'vir'},
+			{ infinitive: 'to cost', past: 'cost', past_participle:'cost', translate: 'custar'},
+			{ infinitive: 'to cut', past: 'cut', past_participle:'cut', translate: 'cortar'},
+			{ infinitive: 'to deal', past: 'dealt', past_participle:'dealt', translate: 'lidar com'},
+			{ infinitive: 'to dig', past: 'dug', past_participle:'dug', translate: 'cavar'},
+			{ infinitive: 'to do', past: 'did', past_participle:'done', translate: 'fazer'},
+			{ infinitive: 'to draw', past: 'drew', past_participle:'drawn', translate: 'desenhar'},
+			{ infinitive: 'to drink', past: 'drank', past_participle:'drunk', translate: 'beber'},
+			{ infinitive: 'to drive', past: 'drove', past_participle:'driven', translate: 'dirigir'},
+			{ infinitive: 'to eat', past: 'ate', past_participle:'eaten', translate: 'comer'},
+			{ infinitive: 'to fall', past: 'fell', past_participle:'fallen', translate: 'cair'},
+			{ infinitive: 'to feed', past: 'fed', past_participle:'fed', translate: 'alimentar'},
+			{ infinitive: 'to feel', past: 'felt', past_participle:'felt', translate: 'sentir'},
+			{ infinitive: 'to fight', past: 'fought', past_participle:'fought', translate: 'lutar'},
+			{ infinitive: 'to find', past: 'found', past_participle:'found', translate: 'achar'},
+			{ infinitive: 'to fit', past: 'fit', past_participle:'fit', translate: 'servir'},
+			{ infinitive: 'to forget', past: 'forgot', past_participle:'forgotten', translate: 'esquecer'},
+			{ infinitive: 'to fly', past: 'flew', past_participle:'flown', translate: 'voar'},
+			{ infinitive: 'to freeze', past: 'froze', past_participle:'frozen', translate: 'congelar'},
+			{ infinitive: 'to get', past: 'got', past_participle:'gotten', translate: 'pegar'},
+			{ infinitive: 'to give', past: 'gave', past_participle:'given', translate: 'dar'},
+			{ infinitive: 'to go', past: 'went', past_participle:'gone', translate: 'ir'},
+			{ infinitive: 'to grow', past: 'grew', past_participle:'grown', translate: 'crescer'},
+			{ infinitive: 'to have', past: 'had', past_participle:'had', translate: 'ter'},
+			{ infinitive: 'to hear', past: 'heard', past_participle:'heard', translate: 'escutar'},
+			{ infinitive: 'to hide', past: 'hid', past_participle:'hidden', translate: 'esconder'},
+			{ infinitive: 'to hold', past: 'held', past_participle:'held', translate: 'segurar'},
+			{ infinitive: 'to hurt', past: 'hurt', past_participle:'hurt', translate: 'machucar'},
+			{ infinitive: 'to keep', past: 'kept', past_participle:'kept', translate: 'manter'},
+			{ infinitive: 'to know', past: 'knew', past_participle:'known', translate: 'saber'},
+			{ infinitive: 'to learn', past: 'learnt', past_participle:'learnt', translate: 'aprender'},
+			{ infinitive: 'to leave', past: 'left', past_participle:'left', translate: 'sair'},
+			{ infinitive: 'to lend', past: 'lent', past_participle:'lent', translate: 'emprestar'},
+			{ infinitive: 'to let', past: 'let', past_participle:'let', translate: 'deixar'},
+			{ infinitive: 'to lose', past: 'lost', past_participle:'lost', translate: 'perder'},
+			{ infinitive: 'to make', past: 'made', past_participle:'made', translate: 'fazer'},
+		].splice(0, this.total_verbs);
+	}
+
+	isValidatingPast() {
+		return this.is_validating_past;
+	}
+	isValidatingPastParticiple() {
+		return this.is_validating_past_participle;
+	}
+
+	getTotalVerbs() {
+		return this.total_verbs;
+	}
+
+	randNewVerb() {
+
+		var rand = Math.floor( Math.random() * ( this.verbs.length ) );
+
+		this.current_verb = this.verbs[ rand ];
+		this.in_game = true;
+
+		this.verbs.splice(rand, 1);
+
+		return this.current_verb.infinitive;
+	}
+
+	getInfinitiveVerb() {
+		return this.current_verb.infinitive;
+	}
+
+	getAnswer() {
+		this.in_game = false;
+		return this.current_verb;
+	}
+
+	testAnswer(answer) {
+		if( this.in_game ) {
+			// @TODO: calculate points
+		}
+
+		this.in_game = false;
+
+		return {
+			past: answer.past == this.current_verb.past,
+			past_participle: answer.past_participle == this.current_verb.past_participle
+		}
+	}
+
+	isFinishedGame() {
+		if( this.verbs.length == 0 ) {
+			return true;
+		}
+		return false;
+	}
+
+}
+module.exports = IrregularVerbs;
+
+
+var irregular_verbs2 = (function(){
 	var in_infinitive = "";
 	var in_past = "";
 	var in_past_participle = "";
@@ -14,59 +133,6 @@ var irregular_verbs = (function(){
 	var points_max_consective = 0;
 
 
-	var verbs = [
-		['to be', 'was/were', 'been', 'ser/estar'],
-		['to beat', 'beat', 'beat', 'bater'],
-		['to become', 'became', 'become', 'tornar-se'],
-		['to begin', 'began', 'begun', 'começar'],
-		['to bend', 'bent', 'bent', 'dobrar'],
-		['to bet', 'bet', 'bet', 'apostar'],
-		['to bite', 'bit', 'bit', 'morder'],
-		['to blow', 'blew', 'blown', 'soprar'],
-		['to break', 'broke', 'broken', 'quebrar'],
-		['to bring', 'brought', 'brought', 'trazer'],
-		['to build', 'built', 'built', 'construir'],
-		['to buy', 'bought', 'bought', 'comprar'],
-		['to catch', 'caught', 'caught', 'pegar'],
-		['to choose', 'chose', 'chosen', 'escolher'],
-		['to come', 'came', 'come', 'vir'],
-		['to cost', 'cost', 'cost', 'custar'],
-		['to cut', 'cut', 'cut', 'cortar'],
-		['to deal', 'dealt', 'dealt', 'lidar com'],
-		['to dig', 'dug', 'dug', 'cavar'],
-		['to do', 'did', 'done', 'fazer'],
-		['to draw', 'drew', 'drawn', 'desenhar'],
-		['to drink', 'drank', 'drunk', 'beber'],
-		['to drive', 'drove', 'driven', 'dirigir'],
-		['to eat', 'ate', 'eaten', 'comer'],
-		['to fall', 'fell', 'fallen', 'cair'],
-		['to feed', 'fed', 'fed', 'alimentar'],
-		['to feel', 'felt', 'felt', 'sentir'],
-		['to fight', 'fought', 'fought', 'lutar'],
-		['to find', 'found', 'found', 'achar'],
-		['to fit', 'fit', 'fit', 'servir'],
-		['to forget', 'forgot', 'forgotten', 'esquecer'],
-		['to fly', 'flew', 'flown', 'voar'],
-		['to freeze', 'froze', 'frozen', 'congelar'],
-		['to get', 'got', 'gotten', 'pegar'],
-		['to give', 'gave', 'given', 'dar'],
-		['to go', 'went', 'gone', 'ir'],
-		['to grow', 'grew', 'grown', 'crescer'],
-		['to have', 'had', 'had', 'ter'],
-		['to hear', 'heard', 'heard', 'escutar'],
-		['to hide', 'hid', 'hidden', 'esconder'],
-		['to hold', 'held', 'held', 'segurar'],
-		['to hurt', 'hurt', 'hurt', 'machucar'],
-		['to keep', 'kept', 'kept', 'manter'],
-		['to know', 'knew', 'known', 'saber'],
-		['to learn', 'learnt', 'learnt', 'aprender'],
-		['to leave', 'left', 'left', 'sair'],
-		['to lend', 'lent', 'lent', 'emprestar'],
-		['to let', 'let', 'let', 'deixar'],
-		['to lose', 'lost', 'lost', 'perder'],
-		['to make', 'made', 'made', 'fazer'],
-		//['aaaaaaaa', 'aaaaaaaa', 'aaaaaaaa', 'aaaaaaaa'],
-	];
 	var latest_verbs = [];
 
 	var randomNewVerb = function() {
@@ -103,7 +169,7 @@ var irregular_verbs = (function(){
 		$('#modal-finish .btn').focus();
 	};
 
-	var init = function( type ) {
+	var init = function() {
 
 		if( type == 'past' || type == 'past-participle' ) {
 

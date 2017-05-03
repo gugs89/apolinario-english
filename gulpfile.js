@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var jasmine = require('gulp-jasmine');
  
-var caminhoCodigoFonte = 'src/**/*.js';
+var caminhoCodigoFonte = 'js/**/*.js';
  
 gulp.task('testar', function() {
 	gulp.src(caminhoCodigoFonte)
