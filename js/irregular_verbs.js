@@ -4,7 +4,7 @@ class IrregularVerbs {
 	constructor(options) {
 		this.is_validating_past = options.validate_past;
 		this.is_validating_past_participle = options.validate_past_participle;
-		this.total_verbs = options.total_verbs;
+		this.total_verbs = isNaN(options.total_verbs) ? 20 : options.total_verbs;
 
 
 
@@ -59,7 +59,27 @@ class IrregularVerbs {
 			{ infinitive: 'to let', past: 'let', past_participle:'let', translate: 'deixar'},
 			{ infinitive: 'to lose', past: 'lost', past_participle:'lost', translate: 'perder'},
 			{ infinitive: 'to make', past: 'made', past_participle:'made', translate: 'fazer'},
-		].splice(0, this.total_verbs);
+		];
+
+		this.shuffleVerbs(this.verbs);
+		if( this.total_verbs > 0 ) {
+			this.verbs = this.verbs.splice(0, this.total_verbs);
+		}
+
+		this.points = {
+			correct: 0,
+			wrong: 0,
+			consective: 0,
+			max_consective: 0
+		}
+
+	}
+
+	shuffleVerbs(a) {
+		for (let i = a.length; i; i--) {
+			let j = Math.floor(Math.random() * i);
+			[a[i - 1], a[j]] = [a[j], a[i - 1]];
+		}
 	}
 
 	isValidatingPast() {
@@ -75,12 +95,10 @@ class IrregularVerbs {
 
 	randNewVerb() {
 
-		var rand = Math.floor( Math.random() * ( this.verbs.length ) );
-
-		this.current_verb = this.verbs[ rand ];
+		this.current_verb = this.verbs[ 0 ];
 		this.in_game = true;
 
-		this.verbs.splice(rand, 1);
+		this.verbs.splice(0, 1);
 
 		return this.current_verb.infinitive;
 	}
@@ -95,15 +113,46 @@ class IrregularVerbs {
 	}
 
 	testAnswer(answer) {
-		if( this.in_game ) {
-			// @TODO: calculate points
+
+		test_answers = {
+			past: answer.past == this.current_verb.past,
+			past_participle: answer.past_participle == this.current_verb.past_participle
 		}
+
+		calculatePoints(test_answers)
 
 		this.in_game = false;
 
-		return {
-			past: answer.past == this.current_verb.past,
-			past_participle: answer.past_participle == this.current_verb.past_participle
+		return test_answers;
+	}
+
+	/* @TODO: this need be private */
+	calculatePoints(test_answers) {
+
+		if( this.in_game ) {
+			if( this.is_validating_past ) {
+				this.points.correct += test_answers.past ? 1 : 0;
+				this.points.wrong += test_answers.past ? 0 : 1;
+			}
+			if( this.is_validating_past_participle ) {
+				this.points.correct += test_answers.past_participle ? 1 : 0;
+				this.points.wrong += test_answers.past_participle ? 0 : 1;
+			}
+
+			var all_right = ( !this.is_validating_past || test_answers.past ) && 
+							( !this.is_validating_past_participle || test_answers.past_participle );
+
+			if( all_right ) {
+				this.consective++;
+
+				if( this.consective > this.max_consective ) {
+					this.max_consective = this.consective;
+				}
+			}
+			else {
+				this.consective = 0;
+			}
+
 		}
 	}
 
@@ -114,189 +163,10 @@ class IrregularVerbs {
 		return false;
 	}
 
+
+	getPoints() {
+		return points;	
+	}
+
 }
 module.exports = IrregularVerbs;
-
-
-var irregular_verbs2 = (function(){
-	var in_infinitive = "";
-	var in_past = "";
-	var in_past_participle = "";
-	var translated = "";
-
-	var is_validating_past = true;
-	var is_validating_past_participle = true;
-
-	var points_correct = 0;
-	var points_wrong = 0;
-	var points_consective = 0;
-	var points_max_consective = 0;
-
-
-	var latest_verbs = [];
-
-	var randomNewVerb = function() {
-
-		if( verbs.length == 0 ) {
-			finishedGame();
-			return;
-		}
-
-
-		var rand = Math.floor( Math.random() * ( verbs.length ) );
-
-		[in_infinitive, in_past, in_past_participle, translated] = verbs[ rand ];
-
-		document.querySelector('#infinitive').innerHTML = in_infinitive;
-		document.querySelector('#past').value = '';
-		document.querySelector('#past_participle').value = '';
-
-		latest_verbs.push(verbs[ rand ]);
-		verbs.splice(rand, 1);
-
-	};
-
-	var finishedGame = function() {
-
-		verbs = latest_verbs;
-		latest_verbs = [];
-
-		document.querySelector('#finish_points_correct').innerHTML = points_correct;
-		document.querySelector('#finish_points_wrong').innerHTML = points_wrong;
-		document.querySelector('#finish_points_max_consective').innerHTML = points_max_consective;
-		document.querySelector('#finish_points_consective').innerHTML = points_consective;
-		$('#modal-finish').modal('open');
-		$('#modal-finish .btn').focus();
-	};
-
-	var init = function() {
-
-		if( type == 'past' || type == 'past-participle' ) {
-
-			if( type == 'past' ) {
-				is_validating_past_participle = false;
-				$('#past_participle').removeAttr('required');
-				$('.for-past-participle').hide();
-			}
-			if( type == 'past-participle' ) {
-				is_validating_past = false;
-				$('#past').removeAttr('required');
-				$('.for-past').hide();
-			}
-		}
-
-		randomNewVerb();
-
-	};
-
-	var verify = function() {
-
-		return {
-			past: document.querySelector('#past').value.toLowerCase().trim() == in_past,
-			past_participle: document.querySelector('#past_participle').value.toLowerCase().trim() == in_past_participle,
-		}
-	}
-
-	var form_submit = function(e) {
-		e.preventDefault();
-
-		var answer = verify();
-		showResult(answer);
-		calculatePoints(answer)
-		return false;
-	};
-
-	var getMessageText = function(answer) {
-
-		if(
-				(answer.past && answer.past_participle) ||
-				(answer.past && is_validating_past) ||
-				(answer.past_participle && is_validating_past_participle)
-			) {
-			return '<span class="green-text text-darken-4">Good Job. All Right.</span>'
-		}
-
-		if( !answer.past && !answer.past_participle) {
-			return '<span class="red-text text-darken-4">Ops. All Wrong.</span>';
-		}
-
-		if( !answer.past && is_validating_past) {
-			return '<span class="orange-text text-darken-4">You wrong the verb in past.</span>';
-		}
-
-		if( !answer.past_participle && is_validating_past_participle) {
-			return '<span class="orange-text text-darken-4">You wrong the verb in past participle.</span>';
-		}
-	}
-
-	var getAnswerText = function(text, is_correct) {
-		var myclass = 'red-text text-darken-4';
-		if( is_correct ) {
-			myclass = 'green-text text-darken-4';
-		}
-		return '<span class="' + myclass + '">' + text + '</span>';
-	}
-
-	var showResult = function (answer) {
-
-		document.querySelector('#modal-title').innerHTML = getMessageText(answer);
-
-		document.querySelector('#answer_infinitive').innerHTML = in_infinitive;
-		document.querySelector('#answer_past').innerHTML = getAnswerText(in_past, answer.past);
-		document.querySelector('#answer_past_participle').innerHTML = getAnswerText(in_past_participle, answer.past_participle);
-		document.querySelector('#answer_translated').innerHTML = getAnswerText(translated, true);
-		$('#modal-answers').modal('open');
-		$('#modal-answers .btn').focus();
-	};
-
-	var calculatePoints = function (answer) {
-
-		var is_correct = true;
-
-		if( answer.past ) {
-			points_correct++;
-		}
-		else
-		if( is_validating_past ) {
-			points_wrong++;
-			is_correct = false;
-		}
-
-		if( answer.past_participle ) {
-			points_correct++;
-		}
-		else 
-		if( is_validating_past_participle ) {
-			points_wrong++;
-			is_correct = false;
-		}
-
-		if( is_correct ) {
-			points_consective++;
-		}
-		else {
-			points_consective = 0;
-		}
-
-		$('#points_correct').html(points_correct);
-		$('#points_wrong').html(points_wrong);
-		$('#points_consective').html(points_consective);
-
-		if( points_consective > points_max_consective ) {
-			points_max_consective = points_consective;
-		}
-	};
-
-	var modal_closed = function() {
-		if(is_validating_past_participle) $('#past_participle').focus();
-		if(is_validating_past) $('#past').focus();
-		randomNewVerb();
-	};
-
-	return {
-        init: init,
-        form_submit: form_submit,
-        modal_closed: modal_closed
-    }
-})()
-
