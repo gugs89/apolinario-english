@@ -1,8 +1,43 @@
 var IrregularVerbs = require('../irregular_verbs');
-   
+
 describe('irregular_verbs constructor', function() {
 
-	it('Validate constructor', function() {
+
+	it('Validate', function() {
+
+		var irregular_verbs = new IrregularVerbs({
+			validate_past: true,
+			validate_past_participle: true,
+			total_verbs: 10
+		});
+		expect( irregular_verbs.isValidatingPast() ).toBe( true );
+		expect( irregular_verbs.isValidatingPastParticiple() ).toBe( true );
+		expect( irregular_verbs.getTotalVerbs() ).toBe( 10 );
+
+	});
+
+	it('Validate Without Parameter', function() {
+
+		var irregular_verbs = new IrregularVerbs();
+		expect( irregular_verbs.isValidatingPast() ).toBe( true );
+		expect( irregular_verbs.isValidatingPastParticiple() ).toBe( true );
+		expect( irregular_verbs.getTotalVerbs() ).toBe( 20 );
+
+	});
+
+	it('Validate constructor without total verbs', function() {
+
+		var irregular_verbs = new IrregularVerbs({
+			validate_past: true,
+			validate_past_participle: true
+		});
+		expect( irregular_verbs.isValidatingPast() ).toBe( true );
+		expect( irregular_verbs.isValidatingPastParticiple() ).toBe( true );
+		expect( irregular_verbs.getTotalVerbs() ).toBe( 20 );
+
+	});
+
+	it('Validate A lot of tests', function() {
 
 		var test_constructor = [{
 			validate_past: true,
@@ -34,17 +69,17 @@ describe('irregular_verbs constructor', function() {
 		}
 
 	});
+});
 
-	it('Validate constructor without total verbs', function() {
-
+describe('irregular_verbs tests with one verb', function() {
+	it('Rand New Verb', function() {
 		var irregular_verbs = new IrregularVerbs({
 			validate_past: true,
-			validate_past_participle: true
+			validate_past_participle: true,
+			total_verbs: 1
 		});
-		expect( irregular_verbs.isValidatingPast() ).toBe( true );
-		expect( irregular_verbs.isValidatingPastParticiple() ).toBe( true );
-		expect( irregular_verbs.getTotalVerbs() ).toBe( 20 );
-
+		var new_verb_infinitive = irregular_verbs.randNewVerb();
+		expect( new_verb_infinitive ).not.toBeNull();
 	});
 });
 
@@ -53,7 +88,7 @@ describe('irregular_verbs tests with one verb', function() {
 	var irregular_verbs;
 	var onlyOneVerb = { infinitive: 'to be', past: 'was/were', past_participle: 'been', translate: 'ser/estar' };
 
-	beforeAll(function() {
+	beforeEach(function() {
 		irregular_verbs = new IrregularVerbs({
 			validate_past: true,
 			validate_past_participle: true,
@@ -64,30 +99,18 @@ describe('irregular_verbs tests with one verb', function() {
 			return onlyOneVerb.infinitive;
 		});
 
-	});
+		irregular_verbs.randNewVerb();
 
-
-	it('Rand New Verb', function() {
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
-		expect( new_verb_infinitive ).toBe( onlyOneVerb.infinitive );
 	});
 
 
 	it('Get Infinitive Verb', function() {
-		expect( irregular_verbs.isFinishedGame() ).toBeFalsy();
-
-		irregular_verbs.randNewVerb();
 		expect( irregular_verbs.getInfinitiveVerb() ).toBe( onlyOneVerb.infinitive );
 
 	});
 
 
 	it('Get Answers', function() {
-
-		expect( irregular_verbs.isFinishedGame() ).toBe( false );
-
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
-		expect( new_verb_infinitive ).toBe( onlyOneVerb.infinitive );
 
 		var returned_answer = irregular_verbs.getAnswer();
 
@@ -98,11 +121,39 @@ describe('irregular_verbs tests with one verb', function() {
 
 
 
-	it('Verify Answers', function() {
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
+	it('Verify Correct Answers', function() {
 
 		var verified = { past: true, past_participle: true }
 		var returned_verified = irregular_verbs.testAnswer( onlyOneVerb );
+
+		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
+
+	});
+
+	it('Verify Wrong Answers', function() {
+
+		var verified = { past: false, past_participle: false }
+		var returned_verified = irregular_verbs.testAnswer( { past: 'wrong answer', past_participle: 'wrong answer again'} );
+
+		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
+
+	});
+
+	it('Verify Correct Past Answers', function() {
+
+		var answer = { past: onlyOneVerb.past, past_participle: 'wrong answer again'};
+		var verified = { past: true, past_participle: false };
+		var returned_verified = irregular_verbs.testAnswer( answer );
+
+		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
+
+	});
+
+	it('Verify Correct Past Participle Answers', function() {
+
+		var answer = { past: 'wrong answer', past_participle: onlyOneVerb.past_participle };
+		var verified = { past: false, past_participle: true };
+		var returned_verified = irregular_verbs.testAnswer( answer );
 
 		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
 
@@ -157,7 +208,7 @@ describe('irregular_verbs for past and past participle test points', function() 
 	var irregular_verbs;
 	var onlyOneVerb = { infinitive: 'to be', past: 'was/were', past_participle: 'been', translate: 'ser/estar' };
 
-	beforeAll(function() {
+	beforeEach(function() {
 		irregular_verbs = new IrregularVerbs({
 			validate_past: true,
 			validate_past_participle: true,
@@ -165,22 +216,19 @@ describe('irregular_verbs for past and past participle test points', function() 
 		});
 		spyOn(irregular_verbs, "randNewVerb").and.callFake(function() {
 			this.current_verb = onlyOneVerb;
+			this.in_game = true;
 			return onlyOneVerb.infinitive;
 		});
+		irregular_verbs.randNewVerb();
 
 	});
 
 	it('for a correct answer', function() {
-
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
-
-		var verified = { past: true, past_participle: true }
-		var returned_verified = irregular_verbs.testAnswer( onlyOneVerb );
-
-		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
+		
+		irregular_verbs.testAnswer( onlyOneVerb );
 
 		var points = {
-			correct: 1,
+			correct: 2,
 			wrong: 0,
 			consective: 1,
 			max_consective: 1
@@ -193,16 +241,12 @@ describe('irregular_verbs for past and past participle test points', function() 
 
 	it('for a wrong answer', function() {
 
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
-
-		var verified = { past: false, past_participle: false }
-		var returned_verified = irregular_verbs.testAnswer( { past: 'wrong answer', past_participle: 'wrong answer again'} );
-
-		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
+		var answer = { past: 'wrong answer', past_participle: 'wrong answer again'};
+		irregular_verbs.testAnswer( answer );
 
 		var points = {
 			correct: 0,
-			wrong: 1,
+			wrong: 2,
 			consective: 0,
 			max_consective: 0
 		}
@@ -214,60 +258,74 @@ describe('irregular_verbs for past and past participle test points', function() 
 
 	it('for consecutive answers', function() {
 
+		var wrong_answer = {
+			past: 'wrong answer',
+			past_participle: 'wrong answer again'
+		};
+
 		var answers = [{
 			answer: onlyOneVerb,
 			acumulated_points: {
-				correct: 1,
+				correct: 2,
 				wrong: 0,
 				consective: 1,
 				max_consective: 1
 			}
-		},{
+		}, {
 			answer: onlyOneVerb,
 			acumulated_points: {
-				correct: 2,
+				correct: 4,
 				wrong: 0,
 				consective: 2,
 				max_consective: 2
 			}
-		},{
-			answer: {
-				past: 'wrong answer',
-				past_participle: 'wrong answer again'
-			},
+		}, {
+			answer: wrong_answer,
 			acumulated_points: {
-				correct: 2,
-				wrong: 1,
+				correct: 4,
+				wrong: 2,
 				consective: 0,
 				max_consective: 2
 			}
-		},{
+		}, {
 			answer: onlyOneVerb,
 			acumulated_points: {
-				correct: 3,
-				wrong: 1,
+				correct: 6,
+				wrong: 2,
 				consective: 1,
 				max_consective: 2
 			}
 		}];
 
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
 
-		var verified = { past: true, past_participle: true }
-		var returned_verified = irregular_verbs.testAnswer( onlyOneVerb );
-
-		expect( JSON.stringify(returned_verified) ).toBe( JSON.stringify(verified) );
-
-		var points = {
-			correct: 1,
-			wrong: 0,
-			consective: 1,
-			max_consective: 1
+		for(var c=0; c<answers.length; c++) {
+			irregular_verbs.randNewVerb();
+			irregular_verbs.testAnswer( answers[c].answer );
+			var returned_points = irregular_verbs.getPoints();
+			expect( JSON.stringify(returned_points) ).toBe( JSON.stringify(answers[c].acumulated_points) );
 		}
-		var returned_points = irregular_verbs.getPoints();
-
-		expect( JSON.stringify(returned_points) ).toBe( JSON.stringify(points) );
 
 	});
 
+});
+
+
+
+
+describe('test private functions', function() {
+	it('shuffle Verbs', function() {
+
+		expect( function() { _shuffleVerbs() } ).toThrowError('_shuffleVerbs is not defined');
+
+		var irregular_verbs = new IrregularVerbs();
+		expect( function() { irregular_verbs._shuffleVerbs() } ).toThrowError('irregular_verbs._shuffleVerbs is not a function');
+	});
+
+	it('calculate points', function() {
+
+		expect( function() { _calculatePoints() } ).toThrowError('_calculatePoints is not defined');
+
+		var irregular_verbs = new IrregularVerbs();
+		expect( function() { irregular_verbs._calculatePoints() } ).toThrowError('irregular_verbs._calculatePoints is not a function');
+	});
 });
