@@ -1,9 +1,8 @@
-var IrregularVerbs = require('../irregular_verbs');
-
+"use strict";
 describe('irregular_verbs constructor', function() {
 
 
-	it('Validate', function() {
+	it('Validating Properties', function() {
 
 		var irregular_verbs = new IrregularVerbs({
 			validate_past: true,
@@ -16,7 +15,7 @@ describe('irregular_verbs constructor', function() {
 
 	});
 
-	it('Validate Without Parameter', function() {
+	it('Validating Properties Without Parameter', function() {
 
 		var irregular_verbs = new IrregularVerbs();
 		expect( irregular_verbs.isValidatingPast() ).toBe( true );
@@ -25,7 +24,7 @@ describe('irregular_verbs constructor', function() {
 
 	});
 
-	it('Validate constructor without total verbs', function() {
+	it('Validating Properties constructor without total verbs', function() {
 
 		var irregular_verbs = new IrregularVerbs({
 			validate_past: true,
@@ -37,7 +36,7 @@ describe('irregular_verbs constructor', function() {
 
 	});
 
-	it('Validate A lot of tests', function() {
+	it('Validating Properties A lot of tests', function() {
 
 		var test_constructor = [{
 			validate_past: true,
@@ -57,7 +56,7 @@ describe('irregular_verbs constructor', function() {
 			total_verbs: 30
 		}];
 
-		for(var c=0; len = test_constructor.length > c; c++) {
+		for(var c=0; test_constructor.length > c; c++) {
 			var irregular_verbs = new IrregularVerbs({
 				validate_past: test_constructor[c].validate_past,
 				validate_past_participle: test_constructor[c].validate_past_participle,
@@ -69,6 +68,20 @@ describe('irregular_verbs constructor', function() {
 		}
 
 	});
+
+	it('Validating points', function() {
+
+		var irregular_verbs = new IrregularVerbs();
+		var points = {
+			correct: 0,
+			wrong: 0,
+			consective: 0,
+			max_consective: 0
+		}
+		expect( JSON.stringify(irregular_verbs.getPoints()) ).toBe( JSON.stringify(points) );
+
+	});
+
 });
 
 describe('irregular_verbs tests with one verb', function() {
@@ -78,7 +91,7 @@ describe('irregular_verbs tests with one verb', function() {
 			validate_past_participle: true,
 			total_verbs: 1
 		});
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
+		var new_verb_infinitive = irregular_verbs.setNewVerb();
 		expect( new_verb_infinitive ).not.toBeNull();
 	});
 });
@@ -94,12 +107,12 @@ describe('irregular_verbs tests with one verb', function() {
 			validate_past_participle: true,
 			total_verbs: 1
 		});
-		spyOn(irregular_verbs, "randNewVerb").and.callFake(function() {
+		spyOn(irregular_verbs, "setNewVerb").and.callFake(function() {
 			this.current_verb = onlyOneVerb;
 			return onlyOneVerb.infinitive;
 		});
 
-		irregular_verbs.randNewVerb();
+		irregular_verbs.setNewVerb();
 
 	});
 
@@ -175,7 +188,7 @@ describe('irregular_verbs tests finished game', function() {
 
 		expect( irregular_verbs.isFinishedGame() ).toBeFalsy();
 
-		var new_verb_infinitive = irregular_verbs.randNewVerb();
+		var new_verb_infinitive = irregular_verbs.setNewVerb();
 
 		expect( irregular_verbs.isFinishedGame() ).not.toBeFalsy();
 
@@ -194,7 +207,7 @@ describe('irregular_verbs tests finished game', function() {
 
 		for(var c=0; c<total_verbs; c++) {
 			expect( irregular_verbs.isFinishedGame() ).toBeFalsy();
-			irregular_verbs.randNewVerb();
+			irregular_verbs.setNewVerb();
 		}
 
 		expect( irregular_verbs.isFinishedGame() ).not.toBeFalsy();
@@ -214,12 +227,12 @@ describe('irregular_verbs for past and past participle test points', function() 
 			validate_past_participle: true,
 			total_verbs: 10
 		});
-		spyOn(irregular_verbs, "randNewVerb").and.callFake(function() {
+		spyOn(irregular_verbs, "setNewVerb").and.callFake(function() {
 			this.current_verb = onlyOneVerb;
 			this.in_game = true;
 			return onlyOneVerb.infinitive;
 		});
-		irregular_verbs.randNewVerb();
+		irregular_verbs.setNewVerb();
 
 	});
 
@@ -299,7 +312,7 @@ describe('irregular_verbs for past and past participle test points', function() 
 
 
 		for(var c=0; c<answers.length; c++) {
-			irregular_verbs.randNewVerb();
+			irregular_verbs.setNewVerb();
 			irregular_verbs.testAnswer( answers[c].answer );
 			var returned_points = irregular_verbs.getPoints();
 			expect( JSON.stringify(returned_points) ).toBe( JSON.stringify(answers[c].acumulated_points) );

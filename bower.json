@@ -18,6 +18,7 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "materialize": "^0.98.2",
-    "material-icons": "https://google-fonts.azurewebsites.net/googleFonts/material-icons?family=Material+Icons"
+    "material-icons": "https://google-fonts.azurewebsites.net/googleFonts/material-icons?family=Material+Icons",
+    "jasmine-core": "jasmine#^2.6.1"
   }
 }
