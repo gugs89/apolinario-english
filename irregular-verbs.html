@@ -17,8 +17,9 @@
 
 
 	<link rel="stylesheet" href="css/base.css">
-	<script src="js/general.js"></script>
 	<script src="js/irregular_verbs.js"></script>
+	<script src="js/irregular_verbs_controller.js"></script>
+	<script src="js/general.js"></script>
 </head>
 
 <body>
@@ -32,8 +33,6 @@
 			</a>
 			<ul class="side-nav" id="slide-out">
 				<li><a href="irregular-verbs.html">Irregular Verbs</a></li>
-				<li><a href="irregular-verbs.html?type=past">Irregular Verbs - Only Past</a></li>
-				<li><a href="irregular-verbs.html?type=past-participle">Irregular Verbs - Only Past Participle</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -41,31 +40,53 @@
 
 
 <main class="container">
-	<section class="card-panel">
-		<h2>Verb in infinitive: <br class="hide-on-med-and-up">"<strong id="infinitive"></strong>"</h2>
+	<section id="game-options" class="card-panel">
+		<h2>Verb convertions options</h2>
 
-		<p>
-		Write the verb in past and past participle
-		</p>
+		<form id="options_form" class="col row">
+			<p>
+				<input type="checkbox" class="filled-in" id="past" checked="checked" />
+				<label for="past">Past</label>
+			</p>
+			<p>
+				<input type="checkbox" class="filled-in" id="past_pasticiple" checked="checked" />
+				<label for="past_pasticiple">Past participle</label>
+			</p>
+
+			<p>
+				<label for="total_verbs">Total Verbs</label>
+				<input value="20" id="total_verbs" max="38" type="number">
+			</p>
+
+			<button id="irregular_verbs_bt" type="submit" disabled class="waves-effect waves-light btn">
+				<i class="material-icons left">send</i>Start Game
+			</button>
+		</form>
+	</section>
+
+	<section id="game-question" class="card-panel hide">
+		<h2>Verb in infinitive: <br class="hide-on-med-and-up">"<strong class="verb-infinitive"></strong>"</h2>
+
+		<p>Write the verb in past and past participle</p>
 
 
 		<form id="irregular_verbs_form" class="col row">
 			<div class="input-field col m6 s12 for-past">
 				<label for="past">Past</label>
-				<input type="text" id="past" value="" required autocomplete="off" placeholder="">
+				<input type="text" id="answer_past" value="" required autocomplete="off" placeholder="">
 			</div>
 			<div class="input-field col m6 s12 for-past-participle">
 				<label for="past_participle">Past Participle</label>
-				<input type="text" id="past_participle" value="" required autocomplete="off" placeholder="">
+				<input type="text" id="answer_past_participle" value="" required autocomplete="off" placeholder="">
 			</div>
 			<div class="clearfix"></div>
-			<button id="irregular_verbs_bt" type="submit" disabled class="waves-effect waves-light btn"><i class="material-icons left">send</i>Verify my answers</button>
+			<button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">send</i>Verify my answers</button>
 		</form>
 	</section>
-	<section class="card-panel">
-		<div class="green-text text-darken-4">Correct answers: <span id="points_correct">0</span></div>
-		<div class="red-text text-darken-4">Wrong answers: <span id="points_wrong">0</span><br></div>
-		<div class="green-text text-darken-4">Consective Points: <span id="points_consective">0</span></div>
+	<section id="game-result" class="card-panel hide">
+		<div class="green-text text-darken-4">Correct answers: <span class="points_correct">0</span></div>
+		<div class="red-text text-darken-4">Wrong answers: <span class="points_wrong">0</span><br></div>
+		<div class="green-text text-darken-4">Consective Points: <span class="points_consective">0</span></div>
 	</section>
 </main>
 
@@ -74,13 +95,13 @@
 	<div class="modal-content">
 		<h4 id="modal-title">Verify answer</h4>
 		<div>
-			Infinitive <strong><span id="answer_infinitive"></span></strong>.
-			<div class="for-past">The verb in past is <strong><span id="answer_past"></span></strong>.</div>
-			<div class="for-past-participle">The verb in past participle is <strong><span id="answer_past_participle"></span></strong>.</div>
-			The translation is "<span id="answer_translated"></span>"</div>
+			Infinitive <strong><span class="verb-infinitive"></span></strong>.
+			<div class="for-past">The verb in past is <strong><span class="verb-past"></span></strong>.</div>
+			<div class="for-past-participle">The verb in past participle is <strong><span class="verb-past-participle"></span></strong>.</div>
+			The translation is "<span class="verb-translate"></span>"</div>
 	</div>
 	<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-green btn"><i class="material-icons left">done</i>OK</a>
+		<button class="modal-action modal-close waves-effect waves-green btn"><i class="material-icons left">done</i>OK</button>
 	</div>
 </div>
 
@@ -90,16 +111,15 @@
 		<div>
 			All verbs is passed.<br>
 			Your points is:<br>
-			<div class="green-text text-darken-4">Correct answers: <span id="finish_points_correct">0</span></div>
-			<div class="red-text text-darken-4">Wrong answers: <span id="finish_points_wrong">0</span><br></div>
-			<div class="green-text text-darken-4">Max Consective Points: <span id="finish_points_max_consective">0</span></div>
-			<div class="green-text text-darken-4">Last Consective Points: <span id="finish_points_consective">0</span></div>
+			<div class="green-text text-darken-4">Correct answers: <span class="points_correct">0</span></div>
+			<div class="red-text text-darken-4">Wrong answers: <span class="points_wrong">0</span><br></div>
+			<div class="green-text text-darken-4">Max Consective Points: <span class="points_max_consective">0</span></div>
+			<div class="green-text text-darken-4">Last Consective Points: <span class="points_consective">0</span></div>
 	</div>
 	<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-green btn"><i class="material-icons left">done</i>Restart</a>
+		<button class="modal-action modal-close waves-effect waves-green btn"><i class="material-icons left">done</i>Restart</button>
 	</div>
 </div>
-
 </body>
 
 </html>

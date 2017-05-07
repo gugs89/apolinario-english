@@ -1,24 +1,42 @@
-document.addEventListener("DOMContentLoaded", function() {
-	irregular_verbs.init( getParameterByName('type') );
-	document.querySelector('#irregular_verbs_form').addEventListener("submit", irregular_verbs.form_submit);
+$(function() {
+
+	var irregular_verbs;
+	var irregular_verbs_controller = new IrregularVerbsController();
+
+
+	document.querySelector('#options_form').addEventListener("submit", function(e) {
+		e.preventDefault();
+		
+		irregular_verbs = irregular_verbs_controller.startGame(irregular_verbs)
+
+		return false;
+	});
+
+	document.querySelector('#irregular_verbs_form').addEventListener("submit", function(e) {
+		e.preventDefault();
+
+		irregular_verbs_controller.answer_game(irregular_verbs);
+
+		return false;
+	})
+	
 	document.querySelector('#irregular_verbs_bt').disabled = false;
-});
 
-function getParameterByName(name, url) {
-	if (!url) url = window.location.href;
-	name = name.replace(/[\[\]]/g, "\\$&");
-	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
-	if (!results) return null;
-	if (!results[2]) return '';
-	return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+	$('#total_verbs').attr('max', IrregularVerbs.getTotalVerbs());
 
-$(function(){
 	$(".button-collapse").sideNav();
-	$('.modal').modal({
+	$('#modal-answers').modal({
 		complete: function() {
-			irregular_verbs.modal_closed();
+			irregular_verbs_controller.modal_close(irregular_verbs);
+		}
+	});
+	$('#modal-finish').modal({
+		complete: function() {
+			location.reload();
 		}
 	});
 	$('#past').focus();
+
 });
+
+
