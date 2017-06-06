@@ -210,8 +210,8 @@ var IrregularVerbs = (function(){
 		testAnswer(answer) {
 
 			let test_answers = {
-				past: (answer.past == this.current_verb.past),
-				past_participle: (answer.past_participle == this.current_verb.past_participle)
+				past: (answer.past.toLowerCase() == this.current_verb.past),
+				past_participle: (answer.past_participle.toLowerCase() == this.current_verb.past_participle)
 			}
 
 			_calculatePoints.call(this, test_answers);
