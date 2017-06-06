@@ -118,7 +118,7 @@ var IrregularVerbs = (function(){
 			{ infinitive: 'to tell', past: 'told', past_participle:'told', translate: 'contar, dizer'},
 			{ infinitive: 'to think', past: 'thought', past_participle:'thought', translate: 'pensar'},
 			{ infinitive: 'to throw', past: 'threw', past_participle:'thrown', translate: 'arremessar'},
-			{ infinitive: 'to undestand', past: 'undestood', past_participle:'understood', translate: 'entender'},
+			{ infinitive: 'to undestand', past: 'understood', past_participle:'understood', translate: 'entender'},
 			{ infinitive: 'to wake', past: 'woke', past_participle:'woke/woken', translate: 'acordar'},
 			{ infinitive: 'to wear', past: 'wore', past_participle:'worn', translate: 'vestir'},
 			{ infinitive: 'to win', past: 'won', past_participle:'won', translate: 'vestir'},
