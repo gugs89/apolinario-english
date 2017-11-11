@@ -1,0 +1,424 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ex",
+				"exportList"
+			],
+			[
+				"hardware",
+				"hardwareList"
+			],
+			[
+				"Data",
+				"DATA_TYPE"
+			],
+			[
+				"hardw",
+				"hardwareList"
+			],
+			[
+				"send",
+				"sendMessage"
+			],
+			[
+				"header",
+				"headersParams"
+			],
+			[
+				"T",
+				"TodoRequestOptions"
+			],
+			[
+				"oncl",
+				"onclose\tAttr"
+			],
+			[
+				"hard",
+				"hardwares"
+			],
+			[
+				"Hard",
+				"hardware"
+			],
+			[
+				"op",
+				"onopen"
+			],
+			[
+				"onc",
+				"onclick\tAttr"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"borde",
+				"border-right"
+			],
+			[
+				"corre",
+				"correctAnswer"
+			],
+			[
+				"queryS",
+				"querySelector"
+			],
+			[
+				"is",
+				"is_validating_past"
+			],
+			[
+				"poin",
+				"points_consective"
+			],
+			[
+				"past",
+				"past_participle"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"form",
+				"form_submit"
+			],
+			[
+				"tra",
+				"translated"
+			],
+			[
+				"in_pas",
+				"in_past_participle"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 187.0,
+		"last_filter": "inde",
+		"selected_items":
+		[
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"i",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"id",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-html/spec/support/jasmine.json",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/raspberry/spec/support/jasmine.json",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/raspberry/npm-debug.log",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/raspberry/Dockerfile",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/docker-compose.yaml",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-node/src/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-node/src/ClientsList.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-node/src/server-ws.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-node/src/WSController.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/raspberry/src/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-html/src/js/socket.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-node/src/vars/DATA_TYPE.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/raspberry/src/modules/WSController.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/docker-compose.yaml",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/raspberry/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/client/js/hardware.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server/modules/WSController.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server/modules/hardware.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server/modules/hardwareList.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/microservices-node-example-todo-frontend2/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server-html/nginx.conf",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/servidor/src/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/servidor/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/server/index.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/package.json",
+		"/Volumes/Macintosh HD/work/dockers/buscando-cultura/craft-service/node_modules/eslint/lib/rules/func-style.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/.gitignore",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/.docker-compose.yaml.swap",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/init.sh",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/static-files/Dockerfile",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/static-files/nginx.conf",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/routes/routes.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/config/security.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend2/src/views/todoList.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/controllers/todoController.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend2/src/views/layouts/main.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/static-files/src/.bowerrc",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/static-files/bower.json",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/static-files/.bowerrc",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/views/layouts/main.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/books-frontend/microservices-node-example-books-frontend/src/routes/todoRoutes.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/routes/todoRoutes.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/api/TodoRequestOptions.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend/src/api/TodoApi.spec.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/controllers/todoController.js",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend2/src/routes/todoRoutes.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/docker-compose.yaml",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-frontend/microservices-node-example-todo-frontend/src/config/handlebars.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-backend/microservices-node-example-todo-backend-mongodb/src/config/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/.gitignore",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/init.sh",
+		"/Volumes/Macintosh HD/work/docker/html/docker-compose-node-microservices/todo-frontend/microservices-node-example-todo-frontend2/src/routes/routes.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-frontend/microservices-node-example-todo-frontend/src/api/TodoRequestOptions.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-backend/microservices-node-example-todo-backend-mongodb/src/config/database.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-frontend/microservices-node-example-todo-frontend/src/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-backend/microservices-node-example-todo-backend-mongodb/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-node/todo-backend/Dockerfile",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/routes/todoRoutes.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/.gitignore",
+		"/Volumes/Macintosh HD/work/docker/html/microservices-node-example-todo-frontend/.gitignore",
+		"/Volumes/Macintosh HD/work/docker/html/microservices-node-example-todo-backend-mongodb/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/microservices-node-example-todo-backend-mongodb/src/config/database.js",
+		"/Volumes/Macintosh HD/work/docker/html/microservices-node-example-todo-frontend/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/api/TodoApi.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/api/TodoApi.spec.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/config/handlebars.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/api/TodoRequestOptions.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/api/TodoRequestOptions.spec.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/src/utils/UrlUtils.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/.bowerrc",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/api/TodoApi.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/api/TodoApi.spec.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/api/TodoRequestOptions.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/api/TodoRequestOptions.spec.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/views/todoItem.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/views/todoDeleted.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/routes/todoRoutes.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/controllers/todoController.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/routes/routes.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/views/layouts/main.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/views/todoList.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/curso-react-redux/todo-app/frontend-sem-redux/src/todo/todo.jsx",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/bower.json",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/public/js/todo.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/public/css/todo.css",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/config/bodyparser.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/src/api/todo/todo.js",
+		"/Volumes/Macintosh HD/work/docker/html/curso-react-redux/todo-app/frontend/src/main/app.jsx",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/public/css/bootstrap-complement.css",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/public/test.html",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/config/handlebars.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/src/config/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/banhoetosa-firebase/public/index.html",
+		"/Volumes/Macintosh HD/work/docker/html/banhoetosa-firebase/public/views/header.html",
+		"/Volumes/Macintosh HD/work/docker/html/banhoetosa-firebase/public/views/login.html",
+		"/Users/gustavoapolinario/Documents/nodejs-request.txt",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/docker-compose.yaml",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/src/api/todo/todoService.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/src/config/routes.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/front-end/views/index.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/src/config/database.js",
+		"/Volumes/Macintosh HD/work/dockers/buscando-cultura/docker-compose.yml",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/server.js",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/views/index.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/views/main.hbs",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/routes/index.js",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/routes.js",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/app.js",
+		"/Volumes/Macintosh HD/work/docker/html/node-tests/nodejs-with-mustache-tests/views/index.html",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo-backend/package.json",
+		"/Volumes/Macintosh HD/work/docker/html/curso-react-redux/todo-app/backend/src/api/todo/todoService.js",
+		"/Volumes/Macintosh HD/work/docker/html/kubernetes-microservices-example/microservices/todo/backend/src/api/billingCycle/billingCycle.js",
+		"/Volumes/Macintosh HD/work/docker/html/curso-react-redux/todo-app/backend/src/api/todo/todo.js",
+		"/Volumes/Macintosh HD/work/docker/html/casainteligente/client/js/socket.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/src/index.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/docker-compose.yml",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/src/config/config.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/src/config/mongo.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/cinema-microservice/api-gateway/integration-test/index.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/src/api/crafts.spec.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/Dockerfile",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/package.json",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/src/mock/crafts.js",
+		"/Users/gustavoapolinario/Documents/dockers/buscando-cultura/craft-service/src/api/crafts.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "irregular-verbs.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"docker-compose",
+				"buscando-cultura/docker-compose.yml"
+			],
+			[
+				"polymer.html",
+				"loja-inteligente/public/bower_components/polymer/polymer.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 290.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

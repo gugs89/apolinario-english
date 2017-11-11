@@ -1,0 +1,14 @@
+{
+  "background_color": "#ffffff",
+  "name": "English study",
+  "short_name": "EnglishStudy",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "apolinario-english-logo.jpg",
+      "sizes": "144x144",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "index.html",
+}
