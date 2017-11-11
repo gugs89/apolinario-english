@@ -92,6 +92,37 @@ var IrregularVerbs = (function(){
 			{ infinitive: 'to let', past: 'let', past_participle:'let', translate: 'deixar'},
 			{ infinitive: 'to lose', past: 'lost', past_participle:'lost', translate: 'perder'},
 			{ infinitive: 'to make', past: 'made', past_participle:'made', translate: 'fazer'},
+			{ infinitive: 'to mean', past: 'meant', past_participle:'meant', translate: 'significar'},
+			{ infinitive: 'to meet', past: 'met', past_participle:'met', translate: 'conhecer'},
+			{ infinitive: 'to put', past: 'put', past_participle:'put', translate: 'colocar'},
+			{ infinitive: 'to quit', past: 'quit', past_participle:'quit', translate: 'desistir'},
+			{ infinitive: 'to read', past: 'read', past_participle:'read', translate: 'ler'},
+			{ infinitive: 'to ride', past: 'rode', past_participle:'ridden', translate: 'pilotar'},
+			{ infinitive: 'to ring', past: 'rang', past_participle:'rung', translate: 'correr'},
+			{ infinitive: 'to run', past: 'ran', past_participle:'run', translate: 'correr'},
+			{ infinitive: 'to say', past: 'said', past_participle:'said', translate: 'dizer'},
+			{ infinitive: 'to see', past: 'saw', past_participle:'seen', translate: 'ver'},
+			{ infinitive: 'to sell', past: 'sold', past_participle:'sold', translate: 'vender'},
+			{ infinitive: 'to send', past: 'sent', past_participle:'sent', translate: 'enviar'},
+			{ infinitive: 'to sing', past: 'sang', past_participle:'sung', translate: 'cantar'},
+			{ infinitive: 'to sit', past: 'sat', past_participle:'sat', translate: 'sentar'},
+			{ infinitive: 'to sleep', past: 'slept', past_participle:'slept', translate: 'dormir'},
+			{ infinitive: 'to speak', past: 'spoke', past_participle:'spoken', translate: 'falar'},
+			{ infinitive: 'to spend', past: 'spent', past_participle:'spent', translate: 'gastar'},
+			{ infinitive: 'to steal', past: 'stole', past_participle:'stolen', translate: 'roubar'},
+			{ infinitive: 'to stand', past: 'stood', past_participle:'stood', translate: 'levantar'},
+			{ infinitive: 'to swear', past: 'swore', past_participle:'sworn', translate: 'jurar'},
+			{ infinitive: 'to swim', past: 'swam', past_participle:'swum', translate: 'nadar'},
+			{ infinitive: 'to take', past: 'took', past_participle:'taken', translate: 'tomar, pegar'},
+			{ infinitive: 'to teach', past: 'taught', past_participle:'taught', translate: 'ensinar'},
+			{ infinitive: 'to tell', past: 'told', past_participle:'told', translate: 'contar, dizer'},
+			{ infinitive: 'to think', past: 'thought', past_participle:'thought', translate: 'pensar'},
+			{ infinitive: 'to throw', past: 'threw', past_participle:'thrown', translate: 'arremessar'},
+			{ infinitive: 'to undestand', past: 'understood', past_participle:'understood', translate: 'entender'},
+			{ infinitive: 'to wake', past: 'woke', past_participle:'woke/woken', translate: 'acordar'},
+			{ infinitive: 'to wear', past: 'wore', past_participle:'worn', translate: 'vestir'},
+			{ infinitive: 'to win', past: 'won', past_participle:'won', translate: 'vestir'},
+			{ infinitive: 'to write', past: 'wrote', past_participle:'written', translate: 'escrever'},
 		];
 	}
 
@@ -179,8 +210,8 @@ var IrregularVerbs = (function(){
 		testAnswer(answer) {
 
 			let test_answers = {
-				past: (answer.past == this.current_verb.past),
-				past_participle: (answer.past_participle == this.current_verb.past_participle)
+				past: (answer.past.toLowerCase() == this.current_verb.past),
+				past_participle: (answer.past_participle.toLowerCase() == this.current_verb.past_participle)
 			}
 
 			_calculatePoints.call(this, test_answers);
