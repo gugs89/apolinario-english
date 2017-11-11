@@ -11,10 +11,12 @@ const PRECACHE_URLS = [
 	'bower_components/materialize/dist/css/materialize.min.css',
 	'bower_components/jquery/dist/jquery.min.js',
 	'bower_components/materialize/dist/js/materialize.min.js',
-	'js/web-app.js',
 	'js/general.js',
 	'js/irregular_verbs.js',
-	'js/irregular_verbs_controller.js'
+	'js/irregular_verbs_controller.js',
+	'bower_components/materialize/dist/fonts/roboto/Roboto-Regular.woff2',
+	'bower_components/material-icons/rYFNaTjcS6g4U3t-Y5StnKWgpfO2iSkLzTz-AABg.ttf',
+	'bower_components/materialize/dist/fonts/roboto/Roboto-Medium.woff2'
 ];
 
 // The install handler takes care of precaching the resources we always need.
