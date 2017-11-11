@@ -12,4 +12,4 @@ bower_components/materialize/dist/js/materialize.min.js
 js/web-app.js
 js/general.js
 js/irregular_verbs.js
-js/irregular_verbs_controller.j
+js/irregular_verbs_controller.js
