@@ -1,0 +1,15 @@
+CACHE MANIFEST
+# v1 2017-11-11
+
+CACHE:
+index.html
+irregular-verbs.html
+css/base.css
+bower_components/material-icons/materialIcons.css
+bower_components/materialize/dist/css/materialize.min.css
+bower_components/jquery/dist/jquery.min.js
+bower_components/materialize/dist/js/materialize.min.js
+js/web-app.js
+js/general.js
+js/irregular_verbs.js
+js/irregular_verbs_controller.j
