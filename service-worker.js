@@ -6,6 +6,7 @@ const PRECACHE_URLS = [
 	'index.html',
 	'irregular-verbs.html',
 	'./', // Alias for index.html
+	'favicon.ico',
 	'css/base.css',
 	'bower_components/material-icons/materialIcons.css',
 	'bower_components/materialize/dist/css/materialize.min.css',

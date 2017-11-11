@@ -4,6 +4,7 @@ CACHE MANIFEST
 CACHE:
 index.html
 irregular-verbs.html
+favicon.ico
 css/base.css
 bower_components/material-icons/materialIcons.css
 bower_components/materialize/dist/css/materialize.min.css
