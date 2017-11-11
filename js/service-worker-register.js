@@ -1,6 +1,6 @@
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('js/service-worker.js', {
-        scope: '/'
+        scope: '/apolinario-english/'
     }).then(function() {
         console.info('service worker registered');
     }).catch(function(e) {
